@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Snippet\CustomXmlConfig\Api\ConfigInterface"
+                type="Snippet\CustomXmlConfig\Model\Config" />
+    <type name="Snippet\CustomXmlConfig\Model\Config">
+        <arguments>
+            <argument name="reader" xsi:type="object">Snippet\CustomXmlConfig\Model\Config\Reader</argument>
+            <argument name="cacheId" xsi:type="string">snippet_custom_config</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Snippet\CustomXmlConfig\Model\Config\Reader"
+                 type="Magento\Framework\Config\Reader\Filesystem">
+        <arguments>
+            <argument name="fileName" xsi:type="string">custom.xml</argument>
+            <argument name="converter" xsi:type="object">Snippet\CustomXmlConfig\Model\Config\Converter</argument>
+            <argument name="schemaLocator" xsi:type="object">Snippet\CustomXmlConfig\Model\Config\SchemaLocator</argument>
+        </arguments>
+    </virtualType>
+</config>
