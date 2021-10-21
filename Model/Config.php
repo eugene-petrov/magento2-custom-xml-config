@@ -10,7 +10,7 @@ use Snippet\CustomXmlConfig\Api\ConfigInterface;
 class Config extends Data implements ConfigInterface
 {
     /**
-     * @inheridoc
+     * @return array
      */
     public function getCustomNodeInfo(): array
     {
