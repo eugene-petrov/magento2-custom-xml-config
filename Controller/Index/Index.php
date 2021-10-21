@@ -6,6 +6,7 @@ namespace Snippet\CustomXmlConfig\Controller\Index;
 
 use Magento\Framework\App\ActionInterface;
 use Magento\Framework\Controller\Result\RawFactory;
+use Magento\Framework\Controller\ResultInterface;
 use Snippet\CustomXmlConfig\Api\ConfigInterface;
 
 class Index implements ActionInterface
@@ -31,9 +32,9 @@ class Index implements ActionInterface
     }
 
     /**
-     * @inheridoc
+     * @return ResultInterface
      */
-    public function execute()
+    public function execute(): ResultInterface
     {
         $myNodes = $this->customConfig->getCustomNodeInfo();
         $result = $this->rawFactory->create();

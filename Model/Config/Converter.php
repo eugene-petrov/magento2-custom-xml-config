@@ -9,7 +9,8 @@ use Magento\Framework\Config\ConverterInterface;
 class Converter implements ConverterInterface
 {
     /**
-     * @inheridoc
+     * @param \DOMDocument $source
+     * @return array
      */
     public function convert($source): array
     {
